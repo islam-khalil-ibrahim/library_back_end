@@ -57,4 +57,23 @@ addBook(book:BookDto){
 
 
 
+ 
+editBook(id:number , book:BookDto){
+  this.books[id -1]= book;
+  return this.books;
+}
+
+deleteBook(id:number){
+  const index= this.books.findIndex((book) => book.id === id);
+  if (index === -1) { // لو ما حطينا بكون مثلا id مش موجود بحذف اول عنصر بالصفيف وده غلط
+    return 'book not found';
+  }
+  const deletedBook = this.books.splice(index, 1);
+  return deletedBook;
+}
+
+getAllBooks(){
+  return this.books;
+}
+
 }

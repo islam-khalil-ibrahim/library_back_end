@@ -1,20 +1,22 @@
-import { Transform, Type } from "class-transformer"
-import { IsInt, IsNotEmpty, IsString } from "class-validator"
+import { Transform, Type } from 'class-transformer';
+import { IsInt, IsNotEmpty, IsString, IsOptional } from 'class-validator';
 
 export class BookDto {
-    @IsInt()
-    @Type(() => Number)
-    // @Transform(BookDto => Number(BookDto.value))
-    @IsNotEmpty()
-    'id':number
-    @IsString()
-    'title':string
-   @IsString()
-    'author':string
+  @IsInt()
+  @Type(() => Number)
+  // @Transform(BookDto => Number(BookDto.value))
+  @IsNotEmpty()
+  'id': number;
 
-    @IsNotEmpty()
-    @IsInt()
-    'price':number
+  @IsOptional()
+  @IsString()
+  'title': string;
 
-    
+  @IsOptional()
+  @IsString()
+  'author': string;
+
+  @IsOptional()
+  @IsInt()
+  'price': number;
 }
