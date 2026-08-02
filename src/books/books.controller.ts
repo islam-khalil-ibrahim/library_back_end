@@ -23,12 +23,17 @@ export class BooksController {
   }
 
   @Post('changePrice')
-  changePrice(@Body('id') id: string, @Body('newPrice') newPrice: string) {
-    return this.booksService.changePrice(id, Number(newPrice));
+  changePrice(@Body() book: BookDto) {
+    return this.booksService.changePrice(book);
   }
 
   @Post('addBook')
   addBook(@Body() book: BookDto) {
     return this.booksService.addBook(book);
   }
+
+
+
 }
+
+

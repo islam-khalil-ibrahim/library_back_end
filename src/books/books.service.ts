@@ -45,13 +45,16 @@ filteredByPrice(priceMax: number, priceMin: number) {
   }
 }
 
-changePrice(id: string, newPrice: number) {
-  this.books[Number(id) -1].price = newPrice;
-  return this.books[Number(id)-1];  
+changePrice(book:BookDto){
+  this.books[book.id -1 ].price= book.price;
+  return this.books;
 }
 
 addBook(book:BookDto){
   this.books.push(book);
   return this.books;
 }
+
+
+
 }
