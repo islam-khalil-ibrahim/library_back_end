@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { BookDto } from './books.dto';
 
 @Injectable()
 export class BooksService {
@@ -47,5 +48,10 @@ filteredByPrice(priceMax: number, priceMin: number) {
 changePrice(id: string, newPrice: number) {
   this.books[Number(id) -1].price = newPrice;
   return this.books[Number(id)-1];  
+}
+
+addBook(book:BookDto){
+  this.books.push(book);
+  return this.books;
 }
 }

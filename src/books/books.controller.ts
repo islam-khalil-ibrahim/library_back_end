@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { BooksService } from './books.service';
+import { BookDto } from './books.dto';
 
 @Controller('books')
 export class BooksController {
@@ -24,5 +25,10 @@ export class BooksController {
   @Post('changePrice')
   changePrice(@Body('id') id: string, @Body('newPrice') newPrice: string) {
     return this.booksService.changePrice(id, Number(newPrice));
+  }
+
+  @Post('addBook')
+  addBook(@Body() book: BookDto) {
+    return this.booksService.addBook(book);
   }
 }
