@@ -55,9 +55,6 @@ addBook(book:BookDto){
   return this.books;
 }
 
-
-
- 
 editBook(id:number , book:BookDto){
   this.books[id -1]= book;
   return this.books;
