@@ -2,9 +2,15 @@ import { IsInt, IsNotEmpty, IsString , Min, IsEmail, MinLength, Length} from "cl
 import { Transform, Type } from "class-transformer"
 
 export class stdDto{
+    @IsString({message:" status is not string   "})
+    "student" : string
+
+    @IsString({message:" status is not string   "})
+    "status":string
 
     @IsInt({message:"ID must be a number", groups:["create", "update"] })
     "id":number
+    
     @IsString({groups:["create", "update"] })
     'name':string
 
