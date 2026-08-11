@@ -1,22 +1,24 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
 import { StdService } from './std.service';
 import { stdDto } from './std.dto';
 import { StdPipePipe } from './std-pipe.pipe';
+import { AuthGuard } from './guards/auth.guard';
 
 @Controller('std')
 export class StdController {
   constructor(private readonly stdService: StdService) {}
-
   @Get("allStds")
     getAllStds(){
       return this.stdService.AllStds();
     }
   
+
 @Get("stdById/:id")
 getStdById(@Param("id") id: string){
   return this.stdService.findStdById(Number(id));}
 
-@UsePipes(new ValidationPipe( {whitelist:true , groups:["create"]}) ) 
+@UsePipes(new ValidationPipe( {whitelist:true , groups:["create"]}) )
+ 
 @Post("addStd")
 addStd(@Body() std :stdDto){
  return this.stdService.addStd(std);
@@ -38,6 +40,7 @@ getStatuse(@Param("status", StdPipePipe) status: string) {
   return status;
 }
 
+@UseGuards(AuthGuard)
 @Get("student/:student")
 getTheName(@Param("student", StdPipePipe) student: string) {
   return student;

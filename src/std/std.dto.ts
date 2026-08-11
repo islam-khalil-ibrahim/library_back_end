@@ -2,11 +2,11 @@ import { IsInt, IsNotEmpty, IsString , Min, IsEmail, MinLength, Length} from "cl
 import { Transform, Type } from "class-transformer"
 
 export class stdDto{
-    @IsString({message:" status is not string   "})
-    "student" : string
+    // @IsString({message:" status is not string   "})
+    // "student" : string
 
-    @IsString({message:" status is not string   "})
-    "status":string
+    // @IsString({message:" status is not string   "})
+    // "status":string
 
     @IsInt({message:"ID must be a number", groups:["create", "update"] })
     "id":number
@@ -30,8 +30,6 @@ export class stdDto{
     @IsEmail({},{message:"please enter a valid email"})
     "email":string
     
-    @IsString({ message : "major is required" , groups :["create" ] , always: true   }) //put like update or create like post 
-    "major":string
     
     @IsString({groups:["create", "update"] })
     @MinLength(6)

@@ -12,7 +12,7 @@ export class StdPipePipe implements PipeTransform {
       if (Data.includes(value.toUpperCase())) {
         return value;
       } else {
-        throw new NotFoundException("the value not included to status");
+        throw new NotFoundException("the value not included in status");
       }
     }
 
@@ -20,7 +20,7 @@ export class StdPipePipe implements PipeTransform {
       if (students.includes(value.toUpperCase())) {
         return value;
       } else {
-        throw new NotFoundException("the value not included to student");
+        throw new NotFoundException("the value not included in student");
       }
     }
 
