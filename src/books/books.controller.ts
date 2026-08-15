@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { BookDto } from './books.dto';
 import path from 'path';
@@ -54,6 +54,11 @@ deleteBook(@Param("id") id:string){
 getAllBooks(){
   return this.booksService.getAllBooks();
 }
+
+  @Get('searchBookById/:id')
+  searchBooks(@Param('id', ParseIntPipe) id: number) {
+    return this.booksService.searchBooks(id);
+  }
 }
 
 // كيف نرسل نتوفيكشن عن طريق الويب سوكيتس 

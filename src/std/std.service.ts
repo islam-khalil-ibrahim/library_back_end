@@ -36,8 +36,7 @@ addStd(body:any){
         });
     return  this.stdRepository.save(newStd);
 }
-
-
+///////////////////////////
 
 
 findStdById(id:number){
